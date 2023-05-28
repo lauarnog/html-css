@@ -13,6 +13,7 @@
         table {
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
 
         td,th {
@@ -20,12 +21,27 @@
             padding: 10px;
         }
 
-        thead {
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgrey;
+
+        }
+
+        thead, tfoot {
+            background-color: gray;
+            color: white;
+        }
+        
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
             background-color: gray;
         }
 
-        tfoot {
-            background-color: gray;
+        tbody > tr:nth-child(2n) {
+            background-color: lightgray;
         }
 
         td.numero {
@@ -36,9 +52,10 @@
 <body>
     <h1>Minha primeira tabela</h1>
     <table>
+        <caption>Populacao das unidades federativas</caption>
         <thead>
-            <th>Estado</th>
-            <th>Populacao</th>
+            <th scope="col">Estado</th>
+            <th scope="col" style="width: 50px;">Populacao</th>
         </thead>
         <tbody>
             <tr>
@@ -153,7 +170,7 @@
         <tfoot>
             <tr>
                 <th>Total de habitantes</th>
-                    <td class="numero"><strong>202.342.249</strong></td>
+                    <td class="row"><strong>202.342.249</strong></td>
             </tr>
         </tfoot>
     </table>
